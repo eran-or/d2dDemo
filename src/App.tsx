@@ -1,11 +1,13 @@
 import React from 'react';
-import ImageEditor from './ImageEditor';
+import { PuzzleEditor } from './PuzzleEditor';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 function App() {
   return (
-    <div className="App">
-     <ImageEditor />
-    </div>
+    <DndProvider backend={HTML5Backend}>
+     <PuzzleEditor />
+     </DndProvider>
   );
 }
 
