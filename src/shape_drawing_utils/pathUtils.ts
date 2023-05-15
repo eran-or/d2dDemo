@@ -1,4 +1,3 @@
-import simplify from "simplify-js";
 import {calculateAngle, calculateCentroid, calculateDistanceVariance} from './geometryUtils'
 import { Point, Shape } from './types'
 
@@ -33,26 +32,6 @@ export const classifyPath = (
   }
   return "freehand";
 };
-
-export const smoothPath = (path: Array<{ x: number; y: number }>) => {
-  if (path.length < 3) {
-    return path;
-  }
-
-  const newPath = [path[0]];
-  let isStraightLine = true;
-
-  for (let i = 1; i < path.length - 1; i++) {
-    const angle = calculateAngle(path[i - 1], path[i], path[i + 1]);
-    if (angle > Math.PI * 0.7 || angle < Math.PI * 0.3) {
-      newPath.push(path[i]);
-      isStraightLine = false;
-    }
-  }
-  newPath.push(path[path.length - 1]);
-  return isStraightLine ? newPath : simplify(newPath, 2);
-};
-
 
 // Add this function to create a perfect circle path
 export const createCirclePath = (
