@@ -6,5 +6,5 @@ export type Point = {
 export interface Shape {
   id: string,
   path: Array<Point>;
-  backgroundData: ImageData | null;
+  onDropArea: boolean;
 }

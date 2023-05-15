@@ -1,8 +1,8 @@
-// Import required libraries
-import React, { useState, useRef, useEffect } from 'react';
+import React from "react";
 
-// File input for image upload
-export const FileInput: React.FC<{ onFileChange: (file: File) => void }> = ({ onFileChange }) => {
+export const FileInput: React.FC<{ onFileChange: (file: File) => void }> = ({
+  onFileChange,
+}) => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       onFileChange(e.target.files[0]);
@@ -10,6 +10,14 @@ export const FileInput: React.FC<{ onFileChange: (file: File) => void }> = ({ on
   };
 
   return (
-    <input type="file" accept="image/*" onChange={handleFileChange} />
+    <input
+      className={
+        "w-min form-input form-file block text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+      }
+      role="button"
+      type="file"
+      accept="image/*"
+      onChange={handleFileChange}
+    />
   );
 };

@@ -78,7 +78,7 @@ export const isPathClosed = (path: Point[]) => {
 
   const firstPoint = path[0];
   const lastPoint = path[path.length - 1];
-  const threshold = 10; // You can adjust this value as needed
+  const threshold = 10;
 
   // Calculate the distance between the first and last points
   const distance = Math.sqrt(
